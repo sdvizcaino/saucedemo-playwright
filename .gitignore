@@ -1,0 +1,25 @@
+# --- Documentos de trabajo internos (no se publican) ---
+docs/
+*.docx
+*.pdf
+
+# --- Node / Playwright ---
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+# --- Variables de entorno y secretos ---
+.env
+.env.*
+!.env.example
+
+# --- Sistema operativo / editores ---
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.log
