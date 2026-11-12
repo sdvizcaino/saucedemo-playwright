@@ -1,6 +1,7 @@
 import { test as base, type Locator } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
+import { ProductDetailPage } from '../pages/ProductDetailPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutInfoPage } from '../pages/CheckoutInfoPage';
 import { CheckoutOverviewPage } from '../pages/CheckoutOverviewPage';
@@ -12,6 +13,7 @@ type Check = (target: Locator, description: string, assertion: () => Promise<voi
 interface Fixtures {
   loginPage: LoginPage;
   inventoryPage: InventoryPage;
+  productDetailPage: ProductDetailPage;
   cartPage: CartPage;
   checkoutInfoPage: CheckoutInfoPage;
   checkoutOverviewPage: CheckoutOverviewPage;
@@ -23,6 +25,7 @@ interface Fixtures {
 export const test = base.extend<Fixtures>({
   loginPage: async ({ page }, use) => use(new LoginPage(page)),
   inventoryPage: async ({ page }, use) => use(new InventoryPage(page)),
+  productDetailPage: async ({ page }, use) => use(new ProductDetailPage(page)),
   cartPage: async ({ page }, use) => use(new CartPage(page)),
   checkoutInfoPage: async ({ page }, use) => use(new CheckoutInfoPage(page)),
   checkoutOverviewPage: async ({ page }, use) => use(new CheckoutOverviewPage(page)),

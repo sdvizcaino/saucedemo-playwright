@@ -74,7 +74,8 @@ export async function verify(
     await highlight(target, `FAIL: ${description}`);
   }
   const screenshot = await page.screenshot({ fullPage: true });
-  await testInfo.attach(`${failed ? 'FAIL' : 'OK'} - ${description}`, {
+  // Se agrega ".png" al nombre: si la descripción trae un punto ($29.99), Playwright tomaría lo que sigue como extensión.
+  await testInfo.attach(`${failed ? 'FAIL' : 'OK'} - ${description}.png`, {
     body: screenshot,
     contentType: 'image/png',
   });

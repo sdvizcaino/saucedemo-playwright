@@ -26,6 +26,11 @@ export class InventoryPage {
     return this.items.filter({ hasText: name });
   }
 
+  /** Botón de la tarjeta ("Add to cart" o "Remove"). Las imágenes y títulos también tienen rol button, por eso se usa la etiqueta. */
+  itemButton(name: string): Locator {
+    return this.item(name).locator('button');
+  }
+
   async addToCart(name: string): Promise<void> {
     await this.item(name).getByRole('button', { name: 'Add to cart' }).click();
   }
